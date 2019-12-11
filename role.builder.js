@@ -19,8 +19,6 @@ const roleBuilder = {
                 if (creep.build(target) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
-            } else {
-                creep.memory.role = 'repairer'
             }
         } else {
             harvest.harvest(creep);
