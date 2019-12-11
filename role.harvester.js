@@ -4,7 +4,7 @@ const roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
-        if (creep.store.getFreeCapacity() > 0) {
+        if (creep.store.getFreeCapacity() >= 50) {
             this.harvest(creep);
         } else {
             this.stopHarvesting(creep);
