@@ -28,7 +28,7 @@ const creepRoles = {
         priority: 2
     },
     'builder': {
-        body: [WORK, WORK, CARRY, MOVE, MOVE, MOVE],
+        body: [WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE],
         name: 'Builder',
         memory: {
             role: 'builder'
@@ -38,7 +38,7 @@ const creepRoles = {
         priority: 3
     },
     'repairer': {
-        body: [WORK, WORK, CARRY, MOVE, MOVE, MOVE],
+        body: [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
         name: 'Repairer',
         memory: {
             role: 'repairer'
