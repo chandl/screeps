@@ -8,42 +8,42 @@ const repairerHandler = require('role.repairer');
  */
 const creepRoles = {
     'harvester': {
-        body: [WORK, CARRY, MOVE],
+        body: [WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE],
         name: 'Harvester',
         memory: {
             role: 'harvester'
         },
-        desiredCount: 0,
+        desiredCount: 2,
         handler: harvesterHandler,
         priority: 1
     },
     'upgrader': {
-        body: [WORK, CARRY, MOVE],
+        body: [WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE],
         name: 'Upgrader',
         memory: {
             role: 'upgrader'
         },
-        desiredCount: 0,
+        desiredCount: 2,
         handler: upgraderHandler,
         priority: 2
     },
     'builder': {
-        body: [WORK, CARRY, MOVE],
+        body: [WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE],
         name: 'Builder',
         memory: {
             role: 'builder'
         },
-        desiredCount: 0,
+        desiredCount: 2,
         handler: builderHandler,
         priority: 3
     },
     'repairer': {
-        body: [WORK, CARRY, MOVE],
+        body: [WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE, MOVE],
         name: 'Repairer',
         memory: {
             role: 'repairer'
         },
-        desiredCount: 0,
+        desiredCount: 1,
         handler: repairerHandler,
         priority: 4
     }
