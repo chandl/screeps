@@ -23,8 +23,6 @@ const roleRepairer = {
                 if (creep.repair(target) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
-            } else {
-                creep.memory.role = 'builder';
             }
         } else {
             harvest.harvest(creep);
