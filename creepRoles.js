@@ -13,7 +13,7 @@ const creepRoles = {
         memory: {
             role: 'harvester'
         },
-        desiredCount: 2,
+        desiredCount: 4,
         handler: harvesterHandler,
         priority: 1
     },
@@ -23,7 +23,7 @@ const creepRoles = {
         memory: {
             role: 'upgrader'
         },
-        desiredCount: 2,
+        desiredCount: 4,
         handler: upgraderHandler,
         priority: 2
     },
