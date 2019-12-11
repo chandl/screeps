@@ -26,25 +26,21 @@ const spawnCreeps = () => {
         }
     }
 
-    let spawnAnother = true;
-    while (!queue.isEmpty() && spawnAnother) {
+    if(!queue.isEmpty()) {
         const role = queue.pop();
         const name = Game.spawns['Spawn1']
             .spawnCreep(role.body,
                 role.name + '_' + Game.time,
                 {memory: role.memory});
 
-        if (!name < 0) {
+        if (!name > 0) {
             console.log('Spawning new \'' + role.name + '\', priority: ' + role.priority);
             Game.spawns['Spawn1'].room.visual.text(
                 '🛠️' + role.name,
                 Game.spawns['Spawn1'].pos.x + 1,
                 Game.spawns['Spawn1'].pos.y,
                 {align: 'left', opacity: 0.8});
-        } else {
-            // console.log('Attempted to spawn \'' + role.name + '\', priority: ' + role.priority + ', but failed...');
-            spawnAnother = false;
-        }
+        } 
     }
 };
 
