@@ -35,14 +35,27 @@ const roleHarvester = {
         }
     },
 
-    harvest: function (creep) {
+    harvest: function (creep, useStorage = false) {
         if (creep.memory.harvestSourceId === undefined) {
             creep.say('🔄 harvest');
-            creep.memory.harvestSourceId = util.findBestSource(creep.room).id;
+            if(useStorage) {
+                creep.memory.harvestSourceId = util.findBestStorage(creep);
+            } else {
+                creep.memory.harvestSourceId = util.findBestSource(creep.room);
+            }
         }
         const harvestSource = Game.getObjectById(creep.memory.harvestSourceId);
-        if (creep.harvest(harvestSource) === ERR_NOT_IN_RANGE) {
+        let harvestResult;
+        
+        if(useStorage) {
+            harvestResult = creep.withdraw(harvestSource, RESOURCE_ENERGY);
+        } else {
+            harvestResult = creep.harvest(harvestSource);
+        }
+        if (harvestResult === ERR_NOT_IN_RANGE) {
             creep.moveTo(harvestSource, {visualizePathStyle: {stroke: '#ffaa00'}});
+        } else if (harvestResult === ERR_NOT_ENOUGH_RESOURCES) {
+            this.stopHarvesting(creep);
         }
     },
 

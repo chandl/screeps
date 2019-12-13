@@ -16,7 +16,20 @@ const findBestSource = (room) => {
         }
     }
 
-    return used;
+    return used.id;
+};
+
+const findBestStorage = (creep) => {
+
+    const target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+        filter: (s) => s.structureType == STRUCTURE_CONTAINER || s.structureType == STRUCTURE_STORAGE && s.store.energy > 200
+    });
+
+    if(!target) {
+        return findBestSource(creep.room);
+    } else {
+        return target;
+    }
 };
 
 /**
@@ -42,4 +55,4 @@ const _sourcePriority = (source) => {
     return priority;
 };
 
-module.exports = {findBestSource};
+module.exports = {findBestSource, findBestStorage};
